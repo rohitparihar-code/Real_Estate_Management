@@ -15,17 +15,22 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 const PORT = process.env.PORT || 3000;
 
 app.get('/',function(req,res) {
-    rres.render('index.ejs');
+    res.render('index.ejs');
     DB.query("SHOW TABLES", (err, rows) => {
         if(err) 
          throw err;
         console.log(rows);
     });
+});
+
+app.get('/login', function(req, res) {
+    res.render('signup.ejs');
 });
 
 app.post('/login', auth.login);
