@@ -3,10 +3,10 @@ require('dotenv').config({
 });
 
 const express = require('express');
-const morgan = require('morgan');
-const _ = require('lodash');
+// const morgan = require('morgan');
+// const _ = require('lodash');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+// const cors = require('cors');
 const DB = require('./config/database');
 const auth = require('./utility/authentication');
 
@@ -14,7 +14,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
-app.use(cors());
+// app.use(cors());
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
