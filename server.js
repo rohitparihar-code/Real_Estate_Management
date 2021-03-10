@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 const PORT = process.env.PORT || 3000;
 
 app.get('/',function(req,res) {
-    res.send('Hello World!');
+    rres.render('index.ejs');
     DB.query("SHOW TABLES", (err, rows) => {
         if(err) 
          throw err;
