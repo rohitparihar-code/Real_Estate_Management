@@ -36,27 +36,13 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                    <a class="nav-link " aria-current="page" href="#home">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" href="#carouselExampleIndicators">Feedback</a>
+                    <a class="nav-link " href="#carouselExampleIndicators">Feedback</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" href="#carouselExampleIndicators">Compare</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                      Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-link " href="#carouselExampleIndicators">Compare</a>
                   </li>
                 </ul>
                 <form class="d-flex">
@@ -91,13 +77,15 @@
                       <li class="list-group-item">Rating/ Any other tag</li>
                     </ul>
                     <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                           Add To Compare
                         </label>
                       </div>
+                      <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        More Details
+                      </button>
                     </div>
                   </div>
             </div>
@@ -114,13 +102,15 @@
                       <li class="list-group-item">Rating/ Any other tag</li>
                     </ul>
                     <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                           Add To Compare
                         </label>
                       </div>
+                      <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        More Details
+                      </button>
                     </div>
                   </div>
             </div>
@@ -137,13 +127,15 @@
                       <li class="list-group-item">Rating/ Any other tag</li>
                     </ul>
                     <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                           Add To Compare
                         </label>
                       </div>
+                      <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        More Details
+                      </button>
                     </div>
                   </div>
             </div>
@@ -160,17 +152,60 @@
                       <li class="list-group-item">Rating/ Any other tag</li>
                     </ul>
                     <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                           Add To Compare
                         </label>
                       </div>
+                      <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        More Details
+                      </button>
                     </div>
                   </div>
             </div>
         </div>
+
+        <!-- Property Modal -->
+        <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Property #</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="https://i2.wp.com/www.realtybuzz.in/wp-content/uploads/2018/07/RB-5.jpg?fit=750%2C499&ssl=1" alt="Modal Property Image" class="modal-img">
+                <div class="card" style="width: 50%;">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="card" style="width: 100%;">
+                      <div class="card-header">
+                        Featured
+                      </div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">A fifth item</li>
+                        <li class="list-group-item">A Sixth item</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-danger">Add To Wishlist</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Property Modal END -->
 
 
         <form action="/compare" method="get">
