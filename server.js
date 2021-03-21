@@ -29,11 +29,18 @@ app.get('/',function(req,res) {
     });
 });
 
+// ROUTES Created by Rohit (For Trial Run)
 app.get('/login', function(req, res) {
     res.render('signup.ejs');
 });
 
 app.post('/login', auth.login);
+
+app.get('/compare', function(req, res) {
+    res.render('compare_page.ejs');
+});
+// Routes End
+
 
 app.listen(PORT, function (err) {
     if (err) {
