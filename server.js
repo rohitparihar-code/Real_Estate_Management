@@ -26,21 +26,9 @@ app.get('/',function(req,res) {
     DB.query("select * from property", (err, rows) => {
         if(err) 
          throw err;
-        console.log(rows);
+        // console.log(rows);
         res.render('index.ejs', {rows: rows});
     });
-
-    var property_id = 1;
-    var location = "Bengaluru";
-    var address = "Area 51, Bangalore, Karnataka";
-    var area = 3000.00;
-    var cost = 15000000;
-    var furnished = 1;
-    var rating = 4.5;
-
-
-
-    // Test Run Code End
 
 });
 
