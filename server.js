@@ -44,7 +44,11 @@ app.get('/compare', function(req, res) {
 });
 
 app.get('/wishlist', function(req, res) {
-    res.render('wishlist_page.ejs');
+    DB.query('select * from property', (err, rows) => {
+        if(err) throw err;
+        res.render('wishlist_page.ejs', {rows: rows});
+    });
+
 });
 // Routes End
 
