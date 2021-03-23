@@ -74,19 +74,27 @@
           <% for(i in rows) { %>
             <div class="col-3">
                 <div class="card custom-card" >
-                    <img src= <%= rows[i].img_link %> class="card-img-top custom-card-img" alt="...">
+                    <img class="card-img-top custom-card-img" alt="Property Image" src= <%= rows[i].img_link %>>
                     <div class="card-body">
                       <h5 class="card-title"><%= rows[i].name %></h5>
                       <p class="card-text"><%= rows[i].location %></p>
                     </div>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item"><% if(rows[i].furnished == 1) {%>
-                          <p>Furnished</p><% } else {%>
-                          <p>Not Furnished</p><% } %></li>
                       <li class="list-group-item">
-                        Rating: <% for( var j=0; j<rows[i].rating; j++) {%>
+                        <% if(rows[i].furnished == 1) { %>
+                        Well Furnished, Ready to move in...
+                        <span class="fas fa-couch checked"></span>
+                        <% } else {%>
+                        Not Furnished<% } %></li>
+                      <li class="list-group-item">
+                        Rating: <%= rows[i].rating %>/5 
+                        <% for( var j=0; j<rows[i].rating; j++) {%>
                         <span class="fa fa-star checked"></span>
                         <% } %>
+                        <% for( var j = rows[i].rating; j<5; j++) {%>
+                          <span class="fa fa-star"></span>
+                          <% } %>
+
                       </li>
                     </ul>
                     <div class="card-body">
@@ -96,9 +104,10 @@
                           Add To Compare
                         </label>
                       </div>
-                      <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        More Details
-                      </button>
+
+                        <button type="submit" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal" id=<%= i %> >
+                          More Details
+                        </button>
                     </div>
                   </div>
             </div>
@@ -148,7 +157,7 @@
 
         <form action="/compare" method="get">
           <div class="d-grid gap-2">
-            <button class="btn btn-secondary mt-4 mb-2" type="submit" href="compare_page.ejs" style="background-color: rgb(33, 37, 41);">Compare Listings</button>
+            <button class="btn btn-secondary mt-4 mb-2" type="submit" href="compare_page.ejs" style="height: 4rem; background-color: rgb(33, 37, 41);">Compare Listings</button>
           </div>
         </form>
         

@@ -29,10 +29,9 @@ app.get('/',function(req,res) {
         // console.log(rows);
         res.render('index.ejs', {rows: rows});
     });
-
 });
 
-// ROUTES Created by Rohit (For Trial Run)
+// ROUTES Created (For Trial Run)
 
 app.get('/login', function(req, res) {
     res.render('signup.ejs');
