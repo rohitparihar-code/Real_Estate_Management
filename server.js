@@ -21,15 +21,31 @@ app.set('view engine', 'ejs');
 const PORT = process.env.PORT || 3000;
 
 app.get('/',function(req,res) {
-    res.render('index.ejs');
-    DB.query("SHOW TABLES", (err, rows) => {
+    
+    // Code for Card Test Run
+    DB.query("select * from property", (err, rows) => {
         if(err) 
          throw err;
         console.log(rows);
+        res.render('index.ejs', {rows: rows});
     });
+
+    var property_id = 1;
+    var location = "Bengaluru";
+    var address = "Area 51, Bangalore, Karnataka";
+    var area = 3000.00;
+    var cost = 15000000;
+    var furnished = 1;
+    var rating = 4.5;
+
+
+
+    // Test Run Code End
+
 });
 
 // ROUTES Created by Rohit (For Trial Run)
+
 app.get('/login', function(req, res) {
     res.render('signup.ejs');
 });
@@ -39,14 +55,14 @@ app.post('/login', auth.login);
 app.get('/compare', function(req, res) {
     res.render('compare_page.ejs');
 });
+
+app.get('/wishlist', function(req, res) {
+    res.render('wishlist_page.ejs');
+});
 // Routes End
 
 
 app.listen(PORT, function (err) {
-    if (err) {
-        console.info(err);
-    }   
-    else {
-        console.log(`Server running at port ${PORT}`);
-    }
+    if (err) throw error;
+    console.log(`Server running at port ${PORT}`);
 });
