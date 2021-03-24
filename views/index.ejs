@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     </head>
+    
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
@@ -38,18 +39,16 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#home">Home</a>
+                    <a class="nav-link " aria-current="page" href="#home"> Home </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="#carouselExampleIndicators">Feedback</a>
+                    <a class="nav-link " href="#carouselExampleIndicators"> Compare </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="#carouselExampleIndicators">Compare</a>
+                      <a class="nav-link" href="/wishlist"> Wishlist </a> 
                   </li>
                   <li class="nav-item">
-                    <form action="/wishlist" method="GET"> 
-                      <button type="submit" class="nav-link custom_nav_button" href="wishlist_page.ejs">Wishlist</button> 
-                    </form>
+                      <a class="nav-link" href="/feedback"> Feedback </a>
                   </li>
                 </ul>
                 <form class="d-flex">
@@ -66,8 +65,23 @@
         <!-- Nav Bar END -->
 
         <hr>
-        <div id="home"></div>
-        <h3 style="color: rgb(33, 37, 41); margin: 4rem;">Properties Initially Listed / Properties on Home page</h3>
+        <div id="home" class="container-fluid">
+          <h3 style="color: rgb(33, 37, 41); margin-top: 4rem;">Property Home page
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle mt-4 mb-4" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+              Filters
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+              <li><a class="dropdown-item active" href="#">Area</a></li>
+              <li><a class="dropdown-item" href="#">Location</a></li>
+              <li><a class="dropdown-item" href="#">Acc. BHK</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Most recent</a></li>
+            </ul>
+          </div>
+        </h3>
+        </div>
+        
         <!-- Content Body -->
           
         <div class="row" >
@@ -94,7 +108,6 @@
                         <% for( var j = rows[i].rating; j<5; j++) {%>
                           <span class="fa fa-star"></span>
                           <% } %>
-
                       </li>
                     </ul>
                     <div class="card-body">
@@ -163,7 +176,7 @@
         
 
         <hr>
-        <h3 id="home" style="color: rgb(33, 37, 41); margin: 4rem;">Feedback Section</h3>
+        <h3 id="home" style="color: rgb(33, 37, 41); margin: 2.5rem;">Feedback</h3>
 
         <!-- Feedback Caraousel -->
         <div id="carouselExampleIndicators" class="container-fluid carousel slide carousel-box" data-bs-ride="carousel">

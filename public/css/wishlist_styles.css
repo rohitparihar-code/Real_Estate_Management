@@ -30,10 +30,9 @@ h1 {
     margin-bottom: 2rem;
     font-weight: bold;
     background: #121FCF;
-background: -webkit-radial-gradient(circle farthest-corner at top left, #423d8a 0%, #963d8a 100%);
-background: -moz-radial-gradient(circle farthest-corner at top left, #423d8a 0%, #963d8a 100%);
-background: radial-gradient(circle farthest-corner at top left, #423d8a 0%, #963d8a 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-
+    background: -webkit-radial-gradient(circle farthest-corner at top left, #423d8a 0%, #963d8a 100%);
+    background: -moz-radial-gradient(circle farthest-corner at top left, #423d8a 0%, #963d8a 100%);
+    background: radial-gradient(circle farthest-corner at top left, #423d8a 0%, #963d8a 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

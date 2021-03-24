@@ -48,7 +48,10 @@ app.get('/wishlist', function(req, res) {
         if(err) throw err;
         res.render('wishlist_page.ejs', {rows: rows});
     });
+});
 
+app.get('/feedback', function(req, res) {
+    res.render('feedback.ejs')
 });
 // Routes End
 
