@@ -66,17 +66,26 @@
 
         <hr>
         <div id="home" class="container-fluid">
-          <h3 style="color: rgb(33, 37, 41); margin-top: 4rem;">Property Home page
-          <div class="dropdown">
+          <h3 style="color: rgb(33, 37, 41); margin-top: 4rem;">
+            <% if(filter == 0) { %>
+            Property Home Page
+              <% } %>
+            <% if(filter == 1) { %>
+              Properties by Size
+              <% } %>
+            <% if(filter == 2) { %>
+              Properties by Cost
+              <% } %>
+            <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle mt-4 mb-4" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
               Filters
             </button>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-              <li><a class="dropdown-item active" href="#">Area</a></li>
-              <li><a class="dropdown-item" href="#">Location</a></li>
-              <li><a class="dropdown-item" href="#">Acc. BHK</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Most recent</a></li>
+              <li><a class="dropdown-item active" href="/filter-area">Area</a></li>
+              <li><a class="dropdown-item" href="/filter-location">Location</a></li>
+              <li><a class="dropdown-item" href="/filter-bhk">Acc. BHK</a></li>
+              <!-- <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/filter-date">Most recent</a></li> -->
             </ul>
           </div>
         </h3>
@@ -100,6 +109,9 @@
                         <span class="fas fa-couch checked"></span>
                         <% } else {%>
                         Not Furnished<% } %></li>
+                        <li class="list-group-item">
+                          <%= rows[i].area %> Sq. Ft
+                        </li>
                       <li class="list-group-item">
                         Rating: <%= rows[i].rating %>/5 
                         <% for( var j=0; j<rows[i].rating; j++) {%>
