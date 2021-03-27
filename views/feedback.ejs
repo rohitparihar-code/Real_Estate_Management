@@ -20,18 +20,19 @@
     
     </head>
     <body>
+        <script>
+            if(message)
+            alert(message);
+        </script>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <form action="/" method="GET">
             <div class="d-grid gap-2 custom_nav">
               <button class="btn btn-dark" type="submit">
                 <h3 style="margin-top: 0.5rem;">R E M</h3>
               </button>
             </div>
-          </form>
-
         <div class="container">
             <div class="row">
                     <h1>feedback</h1>
@@ -40,35 +41,39 @@
                     <h4 style="text-align:center">We'd love to hear from you!</h4>
             </div>
             <div class="row input-container">
+                <form action="/feedback" method="POST">
                     <div class="col-xs-12">
                         <div class="styled-input wide">
-                            <input type="text" required />
+                            <input type="text" name="name" required />
                             <label>Name</label> 
                         </div> 
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="styled-input">
-                            <input type="text" required />
+                            <input type="text" name="email" required />
                             <label>Email</label> 
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="styled-input" style="float:right;">
-                            <input type="text" required />
+                            <input type="text" name="phone" required />
                             <label>Phone Number</label> 
                         </div>
                     </div>
                     <div class="col-xs-12">
                         <div class="styled-input wide">
-                            <textarea required></textarea>
+                            <textarea name="feedback" required></textarea>
                             <label>Message</label>
                         </div>
                     </div>
                     <div class="col-xs-12">
-                        <div class="btn-lrg submit-btn">Send Message</div>
+                        <input type="submit" class="button" value="Submit">
                     </div>
+                </form>
+
             </div>
-        </div>        
+        </div>       
+ 
         
         <script src="" async defer></script>
     </body>
