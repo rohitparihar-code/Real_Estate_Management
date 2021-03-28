@@ -42,6 +42,7 @@ const landing = util.landing;
 const wishlist = util.wishlist;
 const feedback = util.feedback;
 const search = util.search;
+const compare = util.compare;
 
 
 // Routes BEGIN
@@ -57,21 +58,7 @@ app.post('/logout', auth.logout);
 
 
 // Comparison
-app.post('/compare', function(req, res) {
-    
-    if(!req.body.prop1 && !req.body.prop2) {
-        res.redirect('/');
-    }
-    else{
-        var queryString = `SELECT * FROM property WHERE id IN (${req.body.prop1}, ${req.body.prop2})`;
-        DB.query(queryString, function(err, rows) {
-            if(err)
-             throw err;
-            else
-            res.render('compare_page.ejs', {rows: rows});
-        });
-    }  
-});
+app.post('/compare', compare.compare);
 
 // Wishlist
 app.get('/wishlist', auth.validateUser, wishlist.wishList);
