@@ -57,8 +57,20 @@ app.post('/logout', auth.logout);
 
 
 // Comparison
-app.get('/compare', function(req, res) {
-    res.render('compare_page.ejs');
+app.post('/compare', function(req, res) {
+    
+    if(!req.body.prop1 && !req.body.prop2) {
+        res.redirect('/');
+    }
+    else{
+        var queryString = `SELECT * FROM property WHERE id IN (${req.body.prop1}, ${req.body.prop2})`;
+        DB.query(queryString, function(err, rows) {
+            if(err)
+             throw err;
+            else
+            res.render('compare_page.ejs', {rows: rows});
+        });
+    }  
 });
 
 // Wishlist
