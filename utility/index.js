@@ -5,4 +5,5 @@ module.exports = {
     authentication: require('./authentication'),
     feedback: require('./feedback'),
     wishlist: require('./wishlist'),
+    compare: require('./compare')
 };
