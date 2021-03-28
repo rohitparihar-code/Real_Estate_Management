@@ -39,11 +39,12 @@
   <h1>Compare Properties</h1>
 
   <div class="row">
+    <% for(var x = 0; x < rows.length; x++) { %>
     <div class="col-6 d-flex flex-row-reverse">
       <div class="card comp-container" style="width: 60%;">
         <img src="https://is1-2.housingcdn.com/4f2250e8/731bee4e70d59e487e9601d23116071e/v0/fs/shriram_code_name_dil_chahta_hai-attibele_1-hosur-shriram_properties_limited.jpeg" class="card-img-top custom-card-img" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title"><%= rows[x].name %></h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <div class="card" style="width: 100%;">
             <div class="card-header">
@@ -62,29 +63,7 @@
         </div>
       </div>
     </div>
-    <div class="col-6 d-flex flex-row">
-      <div class="card comp-container" style="width: 60%;">
-        <img src="https://is1-2.housingcdn.com/4f2250e8/78951440508629b5282dc436a732c84e/v0/medium/bavisha_gardenia-sompura-bengaluru-bhavisha_properties.jpeg" class="card-img-top custom-card-img" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <div class="card" style="width: 100%;">
-            <div class="card-header">
-              Featured
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">An item</li>
-              <li class="list-group-item">A second item</li>
-              <li class="list-group-item">A third item</li>
-              <li class="list-group-item">4th item</li>
-              <li class="list-group-item">5th item</li>
-              <li class="list-group-item">6th item</li>
-              <li class="list-group-item">7th item</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    <% } %>
   </div>
 
   <form action="/" method="GET">

@@ -138,7 +138,7 @@
                     </ul>
                     <div class="card-body">
                       <div class="form-check">
-                        <input class="form-check-input box-<%= i%>" name="checkbox-<%= i %>" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input box" name="checkboxCompare" type="checkbox" value="<%= rows[i].id %>" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                           Add To Compare
                         </label>
@@ -218,14 +218,47 @@
         <!-- Property Modal END -->
          <% } %>
 
-
-        <form action="/compare" method="get">
+        <script>
+          $('.box').change(function() {
+              var arr = document.getElementsByClassName('box');
+              var cnt = 0;
+              for(var x = 0; x < arr.length; x++) {
+                if(arr[x].checked) cnt++;
+              }
+              if(cnt >= 3) {
+                this.checked = false;
+                alert('You can only compare two properties at an instant.');
+              }
+          });
+        </script>
+        <form id = "compareForm" action="/compare" method="post">
           <div class="d-grid gap-2">
-            <button class="btn btn-secondary mt-4 mb-2" type="submit" href="compare_page.ejs" style="height: 4rem; background-color: rgb(33, 37, 41);">Compare Listings</button>
+            <button id="compareButton" class="btn btn-secondary mt-4 mb-2" type="submit" href="compare_page.ejs" style="height: 4rem; background-color: rgb(33, 37, 41);">Compare Listings</button>
           </div>
         </form>
+        <script>
+            $('#compareForm').submit(function(event) {
+              var arr = document.getElementsByClassName('box');
+              var values = [];
+              for(var x = 0; x < arr.length; x++){
+                if(arr[x].checked)
+                values.push(arr[x].value);
+              }
+              if(values.length < 2){
+                alert('Select at least two properties to compare.');
+                event.preventDefault();
+                event.stopImmediatePropagation();
+              }
+              else{
+                var input1 = $("<input>").attr("type", "hidden").attr("name", "prop1").val(values[0]);
+                var input2 = $("<input>").attr("type", "hidden").attr("name", "prop2").val(values[1]);
+                $('#compareForm').append(input1);
+                $('#compareForm').append(input2);
+                $.post();
+              }
+            });
+        </script>
         
-
         <hr>
         <h3 id="home" style="color: rgb(33, 37, 41); margin: 2.5rem;">Feedback</h3>
 
