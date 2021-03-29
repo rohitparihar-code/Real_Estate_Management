@@ -18,6 +18,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link rel="stylesheet" href="css/compare_styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -40,24 +41,45 @@
 
   <div class="row">
     <% for(var x = 0; x < rows.length; x++) { %>
-    <div class="col-6 d-flex flex-row-reverse">
+      <% if ((x%2)==0) {%>
+        <div class="col-6 d-flex flex-row-reverse">
+      <% } else {%>
+        <div class="col-6 d-flex flex-row">
+      <% } %>
+
       <div class="card comp-container" style="width: 60%;">
-        <img src="https://is1-2.housingcdn.com/4f2250e8/731bee4e70d59e487e9601d23116071e/v0/fs/shriram_code_name_dil_chahta_hai-attibele_1-hosur-shriram_properties_limited.jpeg" class="card-img-top custom-card-img" alt="...">
+        <img src=<%= rows[x].img_link %> alt="...">
         <div class="card-body">
           <h5 class="card-title"><%= rows[x].name %></h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <p class="card-text"><%= rows[x].location %></p>
           <div class="card" style="width: 100%;">
             <div class="card-header">
               Featured
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">An item</li>
-              <li class="list-group-item">A second item</li>
-              <li class="list-group-item">A third item</li>
-              <li class="list-group-item">4th item</li>
-              <li class="list-group-item">5th item</li>
-              <li class="list-group-item">6th item</li>
-              <li class="list-group-item">7th item</li>
+              <li class="list-group-item">Address: <%= rows[x].address %></li>
+              <li class="list-group-item">Size: <%=rows[x].area %> Sq.</li>
+              <li class="list-group-item">Cost: Rs.<%=rows[x].cost %>/-</li>
+              <li class="list-group-item">Rating: <%= rows[x].rating %>/5
+                <% for( var j=0; j<Math.floor(rows[x].rating); j++) {%>
+                <span class="fa fa-star checked"></span>
+                <% } %>
+                <% for( var j = Math.floor(rows[x].rating); j<5; j++) {%>
+                  <span class="fa fa-star"></span>
+                  <% } %>
+              </li>
+              <li class="list-group-item"> <% if(rows[x].furnished == 1) { %>
+                Well Furnished, Ready to move in...
+                <span class="fas fa-couch checked"></span>
+                <% } else {%>
+                Not Furnished<% } %></li>
+                <li class="list-group-item">
+                  <% if(rows[x].rating > 3.5) {%>
+                    Property in High Demand
+                    <% } else { %>
+                    Re enovation required..
+                    <% } %>
+                </li>
             </ul>
           </div>
         </div>

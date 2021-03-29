@@ -5,7 +5,7 @@ function renderIndexPage(req,res,next) {
     // Code for Card Test Run
     var queryString = 'Select * from property ';
     if(req.body.loggedIn){
-        var wishlistQuery = `SELECT propertyId from Wishlist WHERE userId = ${req.body.id}`;
+        var wishlistQuery = `SELECT propertyId from wishlist WHERE userId = ${req.body.id}`;
         DB.query(wishlistQuery, function(err, wishlist) {
             if(err)
              throw err;

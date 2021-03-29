@@ -32,7 +32,7 @@ function wishList(req, res, next) {
 
 function addToWishlist(req,res,next) {
    
-    DB.query(`INSERT INTO Wishlist VALUES(${req.body.id}, ${req.body.property})`, function(err, rows){
+    DB.query(`INSERT INTO wishlist VALUES(${req.body.id}, ${req.body.property})`, function(err, rows){
         if(err)
          throw err;
         console.log("Success!");

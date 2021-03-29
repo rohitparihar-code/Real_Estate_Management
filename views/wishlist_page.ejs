@@ -89,18 +89,37 @@
                   <div class="card-body">
                     <h5 class="card-title"><%= rows[i].name %></h5>
                     <h6 class="card-subtitle mb-2 text-muted"><%= rows[i].location %></h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <div class="card" style="width: 100%;">
                       <div class="card-header">
                         Featured
                       </div>
                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A fourth item</li>
-                        <li class="list-group-item">A fifth item</li>
-                        <li class="list-group-item">A Sixth item</li>
+                        <li class="list-group-item">Address: <%= rows[i].address %></li>
+                        <li class="list-group-item">Size: <%= rows[i].area %> Sq. Ft.</li>
+                        <li class="list-group-item">Cost: Rs.<%= rows[i].cost %></li>
+                        <li class="list-group-item">Rating: <%= rows[i].rating %>/5
+                          <% for( var j=0; j<Math.floor(rows[i].rating); j++) {%>
+                          <span class="fa fa-star checked"></span>
+                          <% } %>
+                          <% for( var j = Math.floor(rows[i].rating); j<5; j++) {%>
+                            <span class="fa fa-star"></span>
+                            <% } %>
+                        </li>
+                        <li class="list-group-item"> <% if(rows[i].furnished == 1) { %>
+                          Well Furnished, Ready to move in...
+                          <span class="fas fa-couch checked"></span>
+                          <% } else {%>
+                          Not Furnished<% } %></li>
+                          <li class="list-group-item">
+                            <%= rows[i].area %> Sq. Ft
+                          </li>
+                        <li class="list-group-item">
+                          <% if(rows[i].rating > 3.5) {%>
+                            Property in High Demand
+                            <% } else { %>
+                            Re enovation required..
+                            <% } %>
+                        </li>
                       </ul>
                     </div>
                   </div>
